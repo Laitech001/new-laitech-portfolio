@@ -1,26 +1,172 @@
 @import "tailwindcss";
 
+/* ============================================
+   DESIGN TOKENS — dark (default) + light theme
+   ============================================ */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --ink: #05070f;
+  --panel: #0b1230;
+  --panel-2: #0f1840;
+  --royal: #142457;
+  --line: rgba(127, 184, 255, 0.12);
+  --line-strong: rgba(127, 184, 255, 0.22);
+
+  --electric: #2e5bff;
+  --electric-2: #4f7cff;
+  --ice: #7fb8ff;
+  --text: #e8edff;
+  --text-dim: #9aaad6;
+  --text-faint: #5c6a99;
+
+  --glow: rgba(46, 91, 255, 0.45);
+  --glow-soft: rgba(46, 91, 255, 0.18);
+
+  --success: #4ade80;
+}
+
+[data-theme="light"] {
+  --ink: #f4f7ff;
+  --panel: #ffffff;
+  --panel-2: #f4f7ff;
+  --royal: #dce6ff;
+  --line: rgba(20, 36, 87, 0.1);
+  --line-strong: rgba(20, 36, 87, 0.18);
+
+  --electric: #2e5bff;
+  --electric-2: #1e47e0;
+  --ice: #1e47e0;
+  --text: #0b1230;
+  --text-dim: #44508c;
+  --text-faint: #7884b8;
+
+  --glow: rgba(46, 91, 255, 0.25);
+  --glow-soft: rgba(46, 91, 255, 0.1);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-ink: var(--ink);
+  --color-panel: var(--panel);
+  --color-panel-2: var(--panel-2);
+  --color-royal: var(--royal);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+
+  --color-electric: var(--electric);
+  --color-electric-2: var(--electric-2);
+  --color-ice: var(--ice);
+  --color-text: var(--text);
+  --color-text-dim: var(--text-dim);
+  --color-text-faint: var(--text-faint);
+
+  --color-success: var(--success);
+
+  --font-display: var(--font-space-grotesk), "Inter", sans-serif;
+  --font-body: var(--font-inter), "Inter", sans-serif;
+  --font-mono: var(--font-jetbrains-mono), "JetBrains Mono", monospace;
+
+  --container-laitech: 1180px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ============================================
+   BASE RESET
+   ============================================ */
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  background: var(--ink);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  transition:
+    background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: var(--electric);
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: 8px;
+  z-index: 999;
+}
+.skip-link:focus {
+  left: 12px;
+  top: 12px;
+}
+
+:focus-visible {
+  outline: 2px solid var(--ice);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ============================================
+   KEYFRAMES
+   ============================================ */
+@keyframes pulse-dot {
+  0% {
+    box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.55);
+  }
+  70% {
+    box-shadow: 0 0 0 7px rgba(74, 222, 128, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(74, 222, 128, 0);
+  }
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes scroll-fill {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(250%);
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-pulse-dot {
+  animation: pulse-dot 2.4s infinite;
+}
+.animate-blink {
+  animation: blink 1s steps(1) infinite;
+}
+.animate-scroll-fill {
+  animation: scroll-fill 2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
