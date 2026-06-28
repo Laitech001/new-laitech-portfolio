@@ -1,12 +1,10 @@
-import { SITE } from "@/lib/data";
+import { footer } from "@/lib/data";
 
 export default function Footer() {
   return (
-    <footer className="mx-auto flex max-w-laitech flex-wrap items-center justify-between gap-3 border-t border-line px-7 py-7 pb-10 text-[13px] text-text-faint">
-      <span>© 2026 {SITE.name}. Built from scratch — no template.</span>
-      <span>
-        {SITE.location} · {SITE.timezone} · Open to remote
-      </span>
+    <footer className="relative z-10 py-8 text-center text-[13px] text-text-low">
+      {footer.text}
     </footer>
   );
 }
+

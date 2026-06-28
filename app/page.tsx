@@ -1,11 +1,9 @@
 import { Header, Footer, AmbientBackground } from "@/components/layout";
 import { 
   Hero,
-  LogoCloud,
-  Work,
-  Approach,
-  Stack,
-  Testimonial,
+  FeaturedProject,
+  About,
+  Journey,
   Contact, 
 } from '@/components/sections'
 export default function Home() {
@@ -20,11 +18,9 @@ export default function Home() {
 
       <main id="main">
         <Hero />
-        <LogoCloud />
-        <Work />
-        <Approach />
-        <Stack />
-        <Testimonial />
+        <FeaturedProject />
+        <About />
+        <Journey />
         <Contact />
       </main>
 

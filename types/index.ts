@@ -1,3 +1,5 @@
+import { LucideIcon } from "lucide-react";
+
 export interface TrustStat {
   label: string;
   count: number;
@@ -19,7 +21,8 @@ export interface CaseStudy {
 }
 
 export interface ApproachItem {
-  mark: string;
+  value: string;
+  icon: LucideIcon;
   title: string;
   description: string;
 }
@@ -33,7 +36,6 @@ export interface StackRow {
 export interface NavLink {
   href: string;
   label: string;
-  index: string;
 }
 
 export interface TerminalLine {

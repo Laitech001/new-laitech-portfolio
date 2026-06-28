@@ -1,67 +1,65 @@
-import { Reveal } from "@/components/ui";
-import { SITE } from "@/lib/data";
+"use client";
 
-const SOCIAL_LINKS = [
-  { label: "GitHub", href: "https://github.com" },
-  { label: "LinkedIn", href: "https://linkedin.com" },
-  { label: "X / Twitter", href: "https://x.com" },
-  { label: "Résumé ↓", href: "/resume.pdf" },
-];
+import { motion } from "framer-motion";
+import { AnimatedSection } from "@/components/ui";
+import { contact } from "@/lib/data";
 
 export default function Contact() {
   return (
-    <section id="contact" className="px-7 py-10 pb-24 md:pb-30">
-      <Reveal>
-        <div className="mx-auto max-w-180 text-center">
-          <p className="mb-4.5 flex justify-center font-mono text-[12.5px] font-medium tracking-[0.04em] text-ice">
-            04 / Contact
-          </p>
-          <h2 className="font-display text-[30px] leading-[1.2] font-semibold tracking-[-0.01em] sm:text-4xl md:text-[46px]">
-            Have a frontend problem worth solving properly?
-          </h2>
-          <p className="mx-auto mt-5 max-w-120 text-[16.5px] leading-relaxed text-text-dim">
-            Currently taking on one new engagement for Q3 2026. Tell me
-            what&apos;s broken or what you&apos;re building — I&apos;ll reply
-            within a business day.
-          </p>
-
-          <a
-            href={`mailto:${SITE.email}`}
-            className="group mt-11 inline-flex items-center gap-3 border-b-2 border-line-strong pb-2 font-display text-[22px] font-semibold text-text transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-0.5 hover:border-ice hover:text-ice sm:text-[30px]"
-          >
-            {SITE.email}
-            <svg
-              width="20"
-              height="20"
-              viewBox="0 0 20 20"
-              fill="none"
-              className="transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-x-1"
-            >
-              <path
-                d="M4 10h12M11 5l5 5-5 5"
-                stroke="currentColor"
-                strokeWidth="1.6"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </a>
-
-          <div className="mt-13 flex flex-wrap justify-center gap-7">
-            {SOCIAL_LINKS.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm text-text-dim transition-colors duration-250 hover:text-ice"
-              >
-                {link.label}
-              </a>
-            ))}
-          </div>
+    <AnimatedSection
+      id="contact"
+      className="pb-30 pt-24 text-center lg:pt-30"
+    >
+      <div className="mx-auto max-w-wrap px-6 sm:px-8">
+        <div className="mb-4.5 flex items-center justify-center gap-2.5 font-mono text-[13px] text-accent">
+          <span className="text-text-low">{contact.eyebrow.index}</span>
+          {contact.eyebrow.label}
         </div>
-      </Reveal>
-    </section>
+        <h2 className="mx-auto max-w-190 text-[28px] font-extrabold leading-[1.15] tracking-tight text-text-hi sm:text-[34px] lg:text-[46px]">
+          {contact.headline}
+        </h2>
+        <p className="mx-auto mt-4.5 max-w-150 text-[17px] leading-relaxed text-text-mid">
+          {contact.sub}
+        </p>
+
+        <div className="mt-8 inline-flex items-center gap-2.5 rounded-pill border border-line px-4 py-2.5 font-mono text-[13px] text-text-mid">
+          <span className="h-1.5 w-1.5 rounded-full bg-good shadow-[0_0_0_3px_rgba(62,224,138,0.13)]" />
+          {contact.availability}
+        </div>
+
+        <div>
+          <motion.a
+            href={`mailto:${contact.email}`}
+            whileHover={{ scale: 1.02 }}
+            className="group mt-11 inline-flex items-center gap-3.5 text-2xl font-bold text-text-hi sm:text-3xl lg:text-[34px]"
+          >
+            <span className="transition-colors group-hover:text-accent">
+              {contact.email}
+            </span>
+            <span className="transition-colors group-hover:text-accent">
+              →
+            </span>
+          </motion.a>
+        </div>
+
+        <div className="mt-7 flex flex-wrap items-center justify-center gap-4">
+          {contact.links.map((link) => (
+            <motion.a
+              key={link.label}
+              href={link.href}
+              target={link.href.startsWith("http") ? "_blank" : undefined}
+              rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
+              whileHover={{
+                color: "#5b7fff",
+                borderColor: "rgba(91,127,255,0.55)",
+              }}
+              className="rounded-pill border border-line px-4 py-2.5 text-[13.5px] text-text-mid"
+            >
+              {link.label}
+            </motion.a>
+          ))}
+        </div>
+      </div>
+    </AnimatedSection>
   );
 }
