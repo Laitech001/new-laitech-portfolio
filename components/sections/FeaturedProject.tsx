@@ -352,9 +352,6 @@ export default function FeaturedProject() {
           <div className="mb-16 flex flex-wrap items-end justify-between gap-6">
             <div>
               <div className="mb-4.5 flex items-center gap-2.5 font-mono text-[13px] text-accent">
-                <span className="text-text-low">
-                  {featuredProject.eyebrow.index}
-                </span>
                 {featuredProject.eyebrow.label}
               </div>
               <h2 className="max-w-190 text-[28px] font-extrabold leading-[1.15] tracking-tight text-text-hi sm:text-[34px] lg:text-[42px]">
@@ -445,7 +442,6 @@ export default function FeaturedProject() {
       >
         <div className="mx-auto max-w-wrap px-6 sm:px-8">
           <div className="mb-4.5 flex items-center gap-2.5 font-mono text-[13px] text-accent">
-            <span className="text-text-low">{architecture.eyebrow.index}</span>
             {architecture.eyebrow.label}
           </div>
           <h2 className="max-w-190 text-[28px] font-extrabold leading-[1.15] tracking-tight text-text-hi sm:text-[34px] lg:text-[42px]">

@@ -50,25 +50,20 @@ export default function Navbar() {
               <a
                 key={link.href}
                 href={link.href}
-                className="relative flex items-center gap-2 py-2 transition-colors hover:text-text-hi"
+                className="group relative flex items-center gap-2 py-2 transition-colors hover:text-text-hi"
                 aria-current={isActive ? "true" : undefined}
               >
-                <span
-                  className={`font-mono text-xs transition-colors ${
-                    isActive ? "text-accent" : "text-accent/70"
-                  }`}
-                >
-                  {link.index}
-                </span>
                 <span className={isActive ? "text-text-hi" : ""}>
                   {link.label}
                 </span>
-                {isActive && (
+                {isActive ? (
                   <motion.span
                     layoutId="nav-active-underline"
                     className="absolute -bottom-px left-0 right-0 h-[1.5px] bg-accent"
                     transition={{ type: "spring", stiffness: 380, damping: 30 }}
                   />
+                ) : (
+                  <span className="absolute -bottom-px left-0 right-0 h-[1.5px] scale-x-0 bg-text-mid/40 transition-transform duration-200 group-hover:scale-x-100" />
                 )}
               </a>
             );

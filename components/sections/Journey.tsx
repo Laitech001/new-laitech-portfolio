@@ -18,9 +18,6 @@ export default function Journey() {
       >
         <div className="mx-auto max-w-wrap px-6 sm:px-8">
           <div className="mb-4.5 flex items-center gap-2.5 font-mono text-[13px] text-accent">
-            <span className="text-text-low">
-              {challengesSection.eyebrow.index}
-            </span>
             {challengesSection.eyebrow.label}
           </div>
           <h2 className="max-w-190 text-[28px] font-extrabold leading-[1.15] tracking-tight text-text-hi sm:text-[34px] lg:text-[42px]">
@@ -72,9 +69,6 @@ export default function Journey() {
       >
         <div className="mx-auto max-w-wrap px-6 sm:px-8">
           <div className="mb-4.5 flex items-center gap-2.5 font-mono text-[13px] text-accent">
-            <span className="text-text-low">
-              {learningSection.eyebrow.index}
-            </span>
             {learningSection.eyebrow.label}
           </div>
           <h2 className="max-w-190 text-[28px] font-extrabold leading-[1.15] tracking-tight text-text-hi sm:text-[34px] lg:text-[42px]">
