@@ -27,6 +27,30 @@ export interface ApproachItem {
   description: string;
 }
 
+export type ProjectStatus = "completed" | "in-progress" | "archived";
+
+export type MockVariant = "editor" | "dashboard" | "terminal";
+
+export interface ProjectLink {
+  label: string;
+  href: string;
+}
+
+export interface Project {
+  id: string;
+  name: string;
+  category: string;
+  description: string;
+  stack: string[];
+  status: ProjectStatus;
+  mock: MockVariant;
+  images?: string[];
+  primaryLink?: ProjectLink;
+  githubLink?: ProjectLink;
+  privateRepo?: boolean;
+  comingSoon?: boolean;
+}
+
 export interface StackRow {
   layer: string;
   tool: string;

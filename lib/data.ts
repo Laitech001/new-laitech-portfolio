@@ -1,6 +1,5 @@
-// All copy here is sourced directly from the original single-file portfolio.
-// Nothing in this file is placeholder or invented content.
- 
+import { Project } from "@/types";
+
 export interface NavLink {
   label: string;
   href: string;
@@ -46,6 +45,36 @@ export const hero = {
     ] as HeroStat[],
   },
 };
+
+export const projects: Project[] = [
+  {
+  id: "sellora",
+  name: "Sellora",
+  category: "Multi-tenant E-commerce Platform",
+  description:
+    "A full-stack multi-tenant e-commerce platform that enables businesses to create their own online storefront, manage products and inventory, receive customer orders, and monitor sales from a centralized dashboard. Built with secure authentication, tenant isolation, responsive dashboards, and seamless WhatsApp order integration.",
+  stack: [
+    "Next.js",
+    "React",
+    "TypeScript",
+    "Tailwind CSS",
+    "Supabase",
+  ],
+  status: "completed",
+  mock: "dashboard",
+  images: [
+    "/images/sellora-preview-1.png",
+    "/images/sellora-preview-2.png",
+    "/images/sellora-preview-3.png",
+    "/images/sellora-preview-4.png"
+  ],
+  primaryLink: {
+    label: "Live Demo",
+    href: "https://sellora-project-pi.vercel.app",
+  },
+  privateRepo: true,
+}
+]
  
 export interface ProjectStat {
   value: string;

@@ -2,6 +2,7 @@ import { Header, Footer, AmbientBackground } from "@/components/layout";
 import { 
   Hero,
   FeaturedProject,
+  ProjectGrid,
   About,
   Journey,
   Contact, 
@@ -18,6 +19,7 @@ export default function Home() {
 
       <main id="main">
         <Hero />
+        <ProjectGrid />
         <FeaturedProject />
         <About />
         <Journey />

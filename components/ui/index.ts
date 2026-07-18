@@ -5,4 +5,8 @@ export { default as SectionHeading } from './SectionHeading';
 export { default as ThemeToggle } from './ThemeToggle';
 export { default as AnimatedSection } from './AnimatedSection';
 export { default as Terminal } from './Terminal';
-export { default as HeroImage } from './HeroImage'
+export { default as HeroImage } from './HeroImage';
+export { default as ProjectCard } from './ProjectCard';
+export { default as MockEditor } from './MockEditor';
+export { default as MockDashboard } from './MockDashboard';
+export { default as MockTerminal } from './MockTerminal';
